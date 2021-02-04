@@ -24,8 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class AppTest 
-{
+public class MessageSenderTest {
     @Test
     public void russianIpSender() {
         GeoService geoService = Mockito.mock(GeoServiceImpl.class);
@@ -60,20 +59,5 @@ public class AppTest
 
         MessageSender messageSender = new MessageSenderImpl(geoService, localizationService);
         Assertions.assertEquals("Welcome", messageSender.send(headers));
-    }
-
-    @Test
-    public void locationByIpTest()
-    {
-        GeoService geoService = new GeoServiceImpl();
-        Location location = new Location("Moscow", Country.RUSSIA, null, 0);
-        Assertions.assertEquals(location.getCity(), geoService.byIp("172.0.32.11").getCity());
-    }
-
-    @Test
-    public void locationByIpCoordinates()
-    {
-        GeoService geoService = new GeoServiceImpl();
-        Assertions.assertThrows(RuntimeException.class, () -> geoService.byCoordinates(123.2, 89.9));
     }
 }

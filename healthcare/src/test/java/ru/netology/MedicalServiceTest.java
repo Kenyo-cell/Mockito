@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 
-public class AppTest 
+public class MedicalServiceTest
 {
     @Test
     public void badPressureTest()
